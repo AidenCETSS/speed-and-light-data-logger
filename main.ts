@@ -16,7 +16,7 @@ input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Skull)
     datalogger.deleteLog()
     datalogger.setColumnTitles(
-    "temperature",
+    "Acceleration",
     "light"
     )
 })
@@ -28,14 +28,14 @@ let logging = false
 logging = false
 basic.showIcon(IconNames.No)
 datalogger.setColumnTitles(
-"temperature",
+"Acceleration",
 "light"
 )
 loops.everyInterval(1, function () {
     if (logging) {
-        basic.showIcon(IconNames.Heart)
+        basic.showIcon(IconNames.Fabulous)
         datalogger.log(
-        datalogger.createCV("temperature", input.acceleration(Dimension.X)),
+        datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
         datalogger.createCV("light", input.lightLevel())
         )
         basic.clearScreen()
