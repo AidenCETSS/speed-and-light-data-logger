@@ -38,21 +38,11 @@ datalogger.setColumnTitles(
 )
 loops.everyInterval(1, function () {
     if (logging) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . # . .
-            . . . . .
-            . . . . .
-            `)
-        basic.showIcon(IconNames.SmallSquare)
-        basic.showIcon(IconNames.Square)
+        datalogger.log(
+        datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
+        datalogger.createCV("light", input.lightLevel()),
+        datalogger.createCV("Temperature", input.temperature()),
+        datalogger.createCV("Direction", input.compassHeading())
+        )
     }
-    datalogger.log(
-    datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
-    datalogger.createCV("light", input.lightLevel()),
-    datalogger.createCV("Temperature", input.temperature()),
-    datalogger.createCV("Direction", input.compassHeading())
-    )
-    basic.clearScreen()
 })
