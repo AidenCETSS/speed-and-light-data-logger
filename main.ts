@@ -9,6 +9,7 @@ datalogger.onLogFull(function () {
         `)
 })
 input.onButtonPressed(Button.A, function () {
+    input.calibrateCompass()
     logging = true
     basic.showIcon(IconNames.Yes)
 })
