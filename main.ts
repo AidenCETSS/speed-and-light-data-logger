@@ -1,17 +1,11 @@
 datalogger.onLogFull(function () {
     logging = false
-    basic.showLeds(`
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
-        `)
+    basic.showString("Full")
 })
 input.onButtonPressed(Button.A, function () {
     input.calibrateCompass()
     logging = true
-    basic.showIcon(IconNames.Yes)
+    basic.showIcon(IconNames.Asleep)
 })
 input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Skull)
