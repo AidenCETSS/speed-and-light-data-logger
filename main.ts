@@ -17,7 +17,9 @@ input.onButtonPressed(Button.AB, function () {
     datalogger.deleteLog()
     datalogger.setColumnTitles(
     "Acceleration",
-    "light"
+    "light",
+    "Temperature",
+    "Direction"
     )
 })
 input.onButtonPressed(Button.B, function () {
@@ -29,15 +31,19 @@ logging = false
 basic.showIcon(IconNames.No)
 datalogger.setColumnTitles(
 "Acceleration",
-"light"
+"light",
+"Temperature",
+"Direction"
 )
 loops.everyInterval(1, function () {
     if (logging) {
         basic.showIcon(IconNames.Fabulous)
-        datalogger.log(
-        datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
-        datalogger.createCV("light", input.lightLevel())
-        )
-        basic.clearScreen()
     }
+    datalogger.log(
+    datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
+    datalogger.createCV("light", input.lightLevel()),
+    datalogger.createCV("Temperature", input.temperature()),
+    datalogger.createCV("Direction", input.compassHeading())
+    )
+    basic.clearScreen()
 })
