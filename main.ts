@@ -38,7 +38,15 @@ datalogger.setColumnTitles(
 )
 loops.everyInterval(1, function () {
     if (logging) {
-        basic.showIcon(IconNames.Fabulous)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+        basic.showIcon(IconNames.SmallSquare)
+        basic.showIcon(IconNames.Square)
     }
     datalogger.log(
     datalogger.createCV("Acceleration", input.acceleration(Dimension.X)),
